@@ -31,7 +31,9 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
 
   return (
     <form className="todos__single">
-      {todo.isDone ? (
+      {edit ? (
+        <input value={editTodo} />
+      ) : todo.isDone ? (
         <s className="todos__single--text">{todo.todo}</s>
       ) : (
         <span className="todos__single--text">{todo.todo}</span>

@@ -111,8 +111,11 @@
   }
   .todos {
     width: 95%;
+    margin-bottom: 10px;
   }
-  .todos__single {
-    width: 100%;
+
+  .container {
+    width: 95%;
+    flex-direction: column;
   }
 }

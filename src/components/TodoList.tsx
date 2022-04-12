@@ -4,6 +4,7 @@ import "./styles.css";
 import SingleTodo from "./SingleTodo";
 import { Droppable } from "react-beautiful-dnd";
 interface Props {
+  index: number;
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
   completedTodos: Todo[];
@@ -17,8 +18,14 @@ const TodoList: React.FC<Props> = ({ todos, setTodos, completedTodos, setComplet
         {(provided) => (
           <div className="todos" ref={provided.innerRef} {...provided.droppableProps}>
             <span className="todos__heading">Active Tasks</span>
-            {todos.map((todo) => (
-              <SingleTodo key={todo.id} todo={todo} todos={todos} setTodos={setTodos} />
+            {todos.map((todo, index) => (
+              <SingleTodo
+                key={todo.id}
+                index={index}
+                todo={todo}
+                todos={todos}
+                setTodos={setTodos}
+              />
             ))}
           </div>
         )}
@@ -28,9 +35,10 @@ const TodoList: React.FC<Props> = ({ todos, setTodos, completedTodos, setComplet
         {(provided) => (
           <div className="todos remove" ref={provided.innerRef} {...provided.droppableProps}>
             <span className="todos__heading">Completed Tasks</span>
-            {completedTodos.map((todo) => (
+            {completedTodos.map((todo, index) => (
               <SingleTodo
                 key={todo.id}
+                index={index}
                 todo={todo}
                 todos={completedTodos}
                 setTodos={setCompletedTodos}

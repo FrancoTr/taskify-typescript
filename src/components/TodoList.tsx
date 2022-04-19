@@ -4,7 +4,6 @@ import "./styles.css";
 import SingleTodo from "./SingleTodo";
 import { Droppable } from "react-beautiful-dnd";
 interface Props {
-  index: number;
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
   completedTodos: Todo[];

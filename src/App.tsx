@@ -7,8 +7,8 @@ import { DragDropContext, DropResult } from "react-beautiful-dnd";
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [completedTodos, setCompletedTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Array<Todo>>([]);
+  const [completedTodos, setCompletedTodos] = useState<Array<Todo>>([]);
 
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault(); //stops the default page refresh after submit
